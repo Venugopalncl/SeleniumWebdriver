@@ -28,6 +28,7 @@ namespace SeleniumWebdriver.BaseClasses
         {
             ChromeOptions option = new ChromeOptions();
             option.AddArgument("start-maximized");
+            //option.AddArgument("headless");//Not working do more effort
             //option.AddExtension(@"if we have postman extension in chrome give the path")
             return option;
         }

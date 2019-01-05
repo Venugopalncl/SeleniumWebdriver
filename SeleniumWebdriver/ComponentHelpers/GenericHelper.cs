@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.Extensions;
 using SeleniumWebdriver.Settings;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace SeleniumWebdriver.ComponentHelpers
         {
             try
             {
+                //Works for unique elements
                 return ObjectRepository.Driver.FindElements(locator).Count == 1;
             }
             catch (Exception)
@@ -32,6 +34,17 @@ namespace SeleniumWebdriver.ComponentHelpers
             {
                 throw new NoSuchElementException("Element not found :" + locator.ToString());
             }
+        }
+        public static void TakeScreenShot(string filename="Screen")
+        {
+            Screenshot screen = ObjectRepository.Driver.TakeScreenshot();
+            if (filename.Equals("Screen"))
+            {
+                filename = filename + DateTime.UtcNow.ToString("yyyyMM-dd-mm-ss") + ".jpg";
+                screen.SaveAsFile(filename, ScreenshotImageFormat.Jpeg);
+                return;
+            }
+            screen.SaveAsFile(filename, ScreenshotImageFormat.Jpeg);
         }
     }
 }

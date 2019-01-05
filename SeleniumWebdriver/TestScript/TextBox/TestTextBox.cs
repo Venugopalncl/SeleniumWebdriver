@@ -8,18 +8,19 @@ using SeleniumWebdriver.ComponentHelpers;
 using SeleniumWebdriver.Settings;
 using OpenQA.Selenium;
 
-namespace SeleniumWebdriver.TestScript.HyperLink
+namespace SeleniumWebdriver.TestScript.TextBox
 {
     [TestClass]
-    public class TestHyperlink
+    public class TestTextBox
     {
         [TestMethod]
-        public void ClickLInk()
+        public void TextBox()
         {
             NavigationHelper.NavigateToUrl(ObjectRepository.config.GetWebsite());
-            //IWebElement element = ObjectRepository.Driver.FindElement(By.PartialLinkText("File"));
             LinkHelper.ClickLink(By.LinkText("File a Bug"));
-
+            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_login"), ObjectRepository.config.GetUsername());
+            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_password"), ObjectRepository.config.GetPassword());
+            TextBoxHelper.ClearTextBox(By.Id("Bugzilla_login"));
         }
     }
 }

@@ -16,7 +16,7 @@ namespace SeleniumWebdriver.TestScript.WebElement
         [TestMethod]
          public void GetElement()
         {
-            NavigationHelper.NavigateToUrl(ObjectRepository.config.GetWebsite());
+            NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
             try
             {
                 IReadOnlyCollection<IWebElement> col

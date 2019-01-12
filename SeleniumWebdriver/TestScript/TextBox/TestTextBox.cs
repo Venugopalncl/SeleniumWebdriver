@@ -16,10 +16,10 @@ namespace SeleniumWebdriver.TestScript.TextBox
         [TestMethod]
         public void TextBox()
         {
-            NavigationHelper.NavigateToUrl(ObjectRepository.config.GetWebsite());
+            NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
             LinkHelper.ClickLink(By.LinkText("File a Bug"));
-            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_login"), ObjectRepository.config.GetUsername());
-            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_password"), ObjectRepository.config.GetPassword());
+            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_login"), ObjectRepository.Config.GetUsername());
+            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_password"), ObjectRepository.Config.GetPassword());
             TextBoxHelper.ClearTextBox(By.Id("Bugzilla_login"));
         }
     }

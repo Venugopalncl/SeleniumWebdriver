@@ -17,10 +17,10 @@ namespace SeleniumWebdriver.ScreenShot
         [TestMethod]
         public void ScreenShot()
         {
-            NavigationHelper.NavigateToUrl(ObjectRepository.config.GetWebsite());
+            NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
             LinkHelper.ClickLink(By.LinkText("File a Bug"));
-            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_login"), ObjectRepository.config.GetUsername());
-            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_password"), ObjectRepository.config.GetPassword());
+            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_login"), ObjectRepository.Config.GetUsername());
+            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_password"), ObjectRepository.Config.GetPassword());
             GenericHelper.TakeScreenShot();//Without argument
             GenericHelper.TakeScreenShot("Test.jpeg");//With argument
         }

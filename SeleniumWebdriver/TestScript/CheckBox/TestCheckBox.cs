@@ -16,10 +16,10 @@ namespace SeleniumWebdriver.TestScript.CheckBox
         [TestMethod]
         public void TestBox()
         {
-            NavigationHelper.NavigateToUrl(ObjectRepository.config.GetWebsite());
+            
             LinkHelper.ClickLink(By.LinkText("File a Bug"));
-            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_login"), ObjectRepository.config.GetUsername());
-            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_password"), ObjectRepository.config.GetPassword());
+            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_login"), ObjectRepository.Config.GetUsername());
+            TextBoxHelper.TypeInTextBox(By.Id("Bugzilla_password"), ObjectRepository.Config.GetPassword());
             TextBoxHelper.ClearTextBox(By.Id("Bugzilla_login"));
             CheckBoxHelper.IsCheckedBoxChecked(By.Id("Bugzilla_restrictlogin"));
             CheckBoxHelper.CheckedCheckBox(By.Id("Bugzilla_restrictlogin"));

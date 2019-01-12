@@ -16,7 +16,7 @@ namespace SeleniumWebdriver.TestScript.PageNavigation
         [TestMethod]
         public void OpenPage()
         {
-            NavigationHelper.NavigateToUrl(ObjectRepository.config.GetWebsite());
+            NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
             Console.WriteLine("Title of page: {0}", WindowHelper.GetTitle());
         }
     }

@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using SeleniumWebdriver.ComponentHelpers;
 using SeleniumWebdriver.Configuration;
 using SeleniumWebdriver.CustomException;
 using SeleniumWebdriver.Settings;
@@ -57,8 +58,8 @@ namespace SeleniumWebdriver.BaseClasses
         [AssemblyInitialize]
         public static void InitWebDriver(TestContext tc)
         {
-            ObjectRepository.config = new AppConfigReader();
-            switch (ObjectRepository.config.GetBrowser())
+            ObjectRepository.Config = new AppConfigReader();
+            switch (ObjectRepository.Config.GetBrowser())
             {
                 case BrowserType.Firefox:
                     ObjectRepository.Driver = GetFirefoxDriver();
@@ -70,8 +71,13 @@ namespace SeleniumWebdriver.BaseClasses
                     ObjectRepository.Driver = GetIEDriver();
                     break;
                 default:
-                    throw new NoSuitableDriverFound("Driver not found:" + ObjectRepository.config.GetBrowser().ToString());
+                    throw new NoSuitableDriverFound("Driver not found:" + ObjectRepository.Config.GetBrowser().ToString());
             }
+            NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
+            ObjectRepository.Driver.Manage()
+            .Timeouts().PageLoad = TimeSpan.FromSeconds(ObjectRepository.Config.GetPageLoadTimeout());
+            ObjectRepository.Driver.Manage()
+            .Timeouts().ImplicitWait = TimeSpan.FromSeconds(ObjectRepository.Config.GetElementLoadTimeOut());
         }
             [AssemblyCleanup]
             public static void TearDown()

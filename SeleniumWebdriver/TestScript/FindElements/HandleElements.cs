@@ -18,7 +18,7 @@ namespace SeleniumWebdriver.TestScript.FindElements
         public void GetAllElements()
         {
             //Identify all inputs and get the ids of those
-            NavigationHelper.NavigateToUrl(ObjectRepository.config.GetWebsite());
+            NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
             ReadOnlyCollection <IWebElement>  elements= ObjectRepository.Driver.FindElements(By.XPath("//input"));
             ReadOnlyCollection<IWebElement> elements2 = ObjectRepository.Driver.FindElements(By.Id("id"));
 

@@ -34,5 +34,20 @@ namespace SeleniumWebdriver.Configuration
             return ConfigurationManager.AppSettings.Get(AppConfigKeys.Website);
 
         }
+        public int GetPageLoadTimeout()
+        {
+            string timeout = ConfigurationManager.AppSettings.Get(AppConfigKeys.PageLoadTimeout);
+            if (timeout is null)
+                return 30;
+                return Convert.ToInt32(timeout);
+        }
+
+        public int GetElementLoadTimeOut()
+        {
+            string timeout = ConfigurationManager.AppSettings.Get(AppConfigKeys.ElementLoadTimeOut);
+            if (timeout is null)
+                return 30;
+            return Convert.ToInt32(timeout);
+        }
     }
 }

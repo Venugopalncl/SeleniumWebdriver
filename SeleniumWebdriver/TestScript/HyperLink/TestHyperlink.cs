@@ -16,7 +16,7 @@ namespace SeleniumWebdriver.TestScript.HyperLink
         [TestMethod]
         public void ClickLInk()
         {
-            NavigationHelper.NavigateToUrl(ObjectRepository.config.GetWebsite());
+            NavigationHelper.NavigateToUrl(ObjectRepository.Config.GetWebsite());
             //IWebElement element = ObjectRepository.Driver.FindElement(By.PartialLinkText("File"));
             LinkHelper.ClickLink(By.LinkText("File a Bug"));
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
+using SeleniumWebdriver.ComponentHelper;
 using SeleniumWebdriver.ComponentHelpers;
 using SeleniumWebdriver.Settings;
 using System;
